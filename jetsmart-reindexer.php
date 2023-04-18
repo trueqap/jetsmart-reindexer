@@ -6,7 +6,7 @@
 Plugin Name: JetSmart reIndexer
 Plugin URI: https://github.com/trueqap/jetsmart-reindexer
 Description: JetSmart reIndexer system
-Version: 1.1
+Version: 1.0.1
 Requires at least: 5.0
 Requires PHP: 7.4
 Author: trueqap
