@@ -1,12 +1,12 @@
 <?php
 /**
  * @package JetSmartReIndexer
-*/
+ */
 /*
 Plugin Name: JetSmart reIndexer
 Plugin URI: https://github.com/trueqap/jetsmart-reindexer
 Description: JetSmart reIndexer system
-Version: 1.0
+Version: 1.1
 Requires at least: 5.0
 Requires PHP: 7.4
 Author: trueqap
@@ -33,7 +33,7 @@ class JetSmartReIndexer
         add_action('save_post', array($this, 'jet_smarter_reindexer'));
         add_action('post_updated', array($this, 'jet_smarter_reindexer'));
         add_action('wp_trash_post', array($this, 'jet_smarter_reindexer'));
-        add_filter('jet-form-builder/post-modifier/object-actions', array($this, 'jet_form_builder_reindexer'));
+        $this->register_custom_hooks();
     }
 
     /**
@@ -58,6 +58,40 @@ class JetSmartReIndexer
             $this->jet_smarter_reindexer();
             return $actions;
         }
+    }
+
+    /**
+     * Register custom JetFormBuilder hooks for smartfilter reindexing
+     */
+    private function register_custom_hooks()
+    {
+        add_action('jet-form-builder/custom-action/smartfilter-reindex', array($this, 'smartfilter_reindex_action'), 10, 3);
+        add_filter('jet-form-builder/custom-filter/smartfilter-reindex', array($this, 'smartfilter_reindex_filter'), 10, 3);
+    }
+
+    /**
+     * Custom action hook for reindexing smartfilters without form validation
+     *
+     * @param array $request
+     * @param array $action_handler
+     */
+    public function smartfilter_reindex_action($request, $action_handler)
+    {
+        $this->jet_smarter_reindexer();
+    }
+
+    /**
+     * Custom filter hook for reindexing smartfilters with form validation and error messages
+     *
+     * @param boolean $result
+     * @param array $request
+     * @param array $action_handler
+     * @return boolean
+     */
+    public function smartfilter_reindex_filter($result, $request, $action_handler)
+    {
+        $this->jet_smarter_reindexer();
+        return $result;
     }
 }
 
