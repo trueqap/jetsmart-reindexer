@@ -24,7 +24,7 @@ To use the custom JetFormBuilder action hook in JetSmart ReIndexer, follow these
 
 1. Create a new JetFormBuilder form or edit an existing one by going to the WordPress dashboard, and then navigating to JetForms > Add New/Edit Form.
 2. In the form editor, add the form fields you'd like to use.
-3. Scroll down to the "Actions After Submission" section, and click the "Add Action" button.
+3. Scroll down to the "Post Submit Actions" section, and click the "New Action" button.
 4. Select the "Call Hook" option to add a custom hook action.
 5. Click the "Edit Action" button to configure the custom hook action.
 6. In the "Hook Name" field, enter the hook title for our JetSmart ReIndexer action: `jet-form-builder/custom-action/smartfilter-reindex`. This custom action hook will reindex the smartfilters without form validation.
