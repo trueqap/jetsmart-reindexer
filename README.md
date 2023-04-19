@@ -27,7 +27,8 @@ To use the custom JetFormBuilder action hook in JetSmart ReIndexer, follow these
 3. Scroll down to the "Post Submit Actions" section, and click the "New Action" button.
 4. Select the "Call Hook" option to add a custom hook action.
 5. Click the "Edit Action" button to configure the custom hook action.
-6. In the "Hook Name" field, enter the hook title for our JetSmart ReIndexer action: `jet-form-builder/custom-action/smartfilter-reindex`. This custom action hook will reindex the smartfilters without form validation.
+6. In the "Hook Name" field, enter the hook title for our JetSmart ReIndexer action: `smartfilter-reindex`. (jet-form-builder/custom-action/smartfilter-reindex)
+This custom action hook will reindex the smartfilters without form validation.
 7. Save the form and insert it on the desired page using a Gutenberg block or shortcode.
 
 By using the "Call Hook" action with the specified hook title, JetFormBuilder will trigger the JetSmart ReIndexer's custom action hook for reindexing smartfilters without form validation every time the form is submitted.
